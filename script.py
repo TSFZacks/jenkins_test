@@ -11,10 +11,12 @@ def open_chrome_driver():
         chrome_options.add_argument('--headless')  # Rodar sem interface gráfica
         chrome_options.add_argument('--disable-dev-shm-usage')
 
-        chrome_driver_path = "/opt/chromedriver/chromedriver-linux64/chromedriver"
+        chrome_options.binary_location = "/opt/chrome/chrome-linux64/chrome"
 
-        # Usar Service sem o argumento 'executable_path'
-        service = Service(chrome_driver_path)
+        # Configurar o caminho do Chromedriver
+        service = Service('/opt/chromedriver/chromedriver-linux64/chromedriver')
+
+        # Inicializar o WebDriver
         driver = webdriver.Chrome(service=service, options=chrome_options)
 
         return driver
