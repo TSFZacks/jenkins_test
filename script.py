@@ -25,7 +25,7 @@ def open_chrome_driver():
 def main(driver):
     driver.get('https://www.youtube.com')
     time.sleep(10)
-
+#
     pesquisa_input = driver.find_element(By.XPATH, '//a[@title="Shorts"]')
     pesquisa_input.click()
     print(driver.current_url)
