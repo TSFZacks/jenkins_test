@@ -13,7 +13,8 @@ def open_chrome_driver():
 
         chrome_driver_path = "/opt/chromedriver/chromedriver-linux64/chromedriver"
         
-        service = Service(executable_path=chrome_driver_path)
+        # Inicializar o Service corretamente
+        service = Service(chrome_driver_path)
         driver = webdriver.Chrome(service=service, options=chrome_options)
 
         return driver
@@ -25,7 +26,7 @@ def open_chrome_driver():
 def main(driver):
     driver.get('https://www.youtube.com')
     time.sleep(10)
-#
+
     pesquisa_input = driver.find_element(By.XPATH, '//a[@title="Shorts"]')
     pesquisa_input.click()
     print(driver.current_url)
