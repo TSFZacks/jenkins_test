@@ -13,7 +13,7 @@ def open_chrome_driver():
 
         chrome_driver_path = "/opt/chromedriver/chromedriver-linux64/chromedriver"
         
-        service = Service(chrome_driver_path)
+        service = Service(executable_path=chrome_driver_path)
         driver = webdriver.Chrome(service=service, options=chrome_options)
 
         return driver
