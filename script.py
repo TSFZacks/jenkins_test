@@ -11,8 +11,8 @@ def open_chrome_driver():
         chrome_options.add_argument('--headless')  # Rodar sem interface gráfica
         chrome_options.add_argument('--disable-dev-shm-usage')
         
-        # Caminho correto do ChromeDriver baixado pelo Jenkins
-        driver = webdriver.Chrome(executable_path='/opt/chromedriver/chromedriver', options=chrome_options)
+        # Caminho atualizado do ChromeDriver
+        driver = webdriver.Chrome(executable_path='/var/lib/jenkins/chromedriver/chromedriver', options=chrome_options)
 
         return driver
     
