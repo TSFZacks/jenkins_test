@@ -12,10 +12,9 @@ def open_chrome_driver():
         chrome_options.add_argument('--disable-dev-shm-usage')
 
         chrome_driver_path = "/opt/chromedriver/chromedriver-linux64/chromedriver"
-        
-        # Inicializar o Service corretamente
-        service = Service(chrome_driver_path)
-        driver = webdriver.Chrome(service=service)
+
+        service = Service(executable_path=chrome_driver_path)
+        driver = webdriver.Chrome(service=service, options=chrome_options)
 
         return driver
 
