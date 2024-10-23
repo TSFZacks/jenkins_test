@@ -15,7 +15,7 @@ def open_chrome_driver():
         
         # Inicializar o Service corretamente
         service = Service(chrome_driver_path)
-        driver = webdriver.Chrome(service=service, options=chrome_options)
+        driver = webdriver.Chrome(service=service)
 
         return driver
 
