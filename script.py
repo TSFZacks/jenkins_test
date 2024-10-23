@@ -2,6 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.chrome.service import Service
 import time
 
 def open_chrome_driver():
@@ -10,9 +11,13 @@ def open_chrome_driver():
         chrome_options.add_argument('--no-sandbox')
         chrome_options.add_argument('--headless')  # Rodar sem interface gráfica
         chrome_options.add_argument('--disable-dev-shm-usage')
-        
-        # Caminho atualizado do ChromeDriver
-        driver = webdriver.Chrome(executable_path='/var/lib/jenkins/chromedriver/chromedriver', options=chrome_options)
+
+
+        chrome_driver_path = "/opt/chromedriver/chromedriver-linux64/chromedriver"
+
+        service = Service(executable_path=chrome_driver_path)
+
+        driver = webdriver.Chrome(service=service)
 
         return driver
     
@@ -26,6 +31,7 @@ def main(driver):
 
     pesquisa_input = driver.find_element(By.XPATH, '//a[@title="Shorts"]')
     pesquisa_input.click()
+    print(driver.current_url)
     time.sleep(10)
 
 driver = open_chrome_driver()
