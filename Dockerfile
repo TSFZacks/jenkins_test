@@ -12,6 +12,6 @@ RUN rm ./chrome-installer.sh
 # Install selenium
 RUN pip install selenium boto3
 # Copy the main application code
-COPY main.py ./
+COPY script.py ./
 # Command to run the Lambda function
-CMD [ "main.lambda_handler" ]
+CMD [ "script.lambda_handler" ]

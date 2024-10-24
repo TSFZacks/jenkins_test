@@ -25,13 +25,9 @@ def open_chrome_driver():
         print(f"Erro ao abrir o Chrome: {e}")
         return None
 
-def main(driver):
+def lambda_handler():
+    driver = open_chrome_driver()
     driver.get('https://www.youtube.com')
     time.sleep(10)
     print(driver.current_url)
     time.sleep(10)
-
-driver = open_chrome_driver()
-if driver:
-    main(driver)
-    driver.quit()
